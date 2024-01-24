@@ -1,10 +1,10 @@
 package com.example.trainingappointment.controller;
 
+import com.example.authorizationValidator.config.argumentResolver.AuthenticatedPrincipal;
+import com.example.authorizationValidator.security.IsAuthenticated;
 import com.example.trainingappointment.entity.Trainee;
 import com.example.trainingappointment.payload.request.AppointmentRequest;
-import com.example.trainingappointment.service.AppointmentService;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import com.example.trainingappointment.service.appointment.AppointmentService;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,11 +19,11 @@ public class AppointmentController {
     }
 
     @PostMapping("/{trainerId}")
-    @PreAuthorize("isAuthenticated()")
+    @IsAuthenticated
     public void appoint(
             @PathVariable Long trainerId,
-            @RequestBody     AppointmentRequest appointmentRequest,
-            @AuthenticationPrincipal Trainee trainee
+            @RequestBody AppointmentRequest appointmentRequest,
+            @AuthenticatedPrincipal Trainee trainee
     ) {
         this.appointmentService
                 .appoint(
