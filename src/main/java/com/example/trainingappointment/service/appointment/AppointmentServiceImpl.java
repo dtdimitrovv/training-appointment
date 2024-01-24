@@ -1,8 +1,8 @@
-package com.example.trainingappointment.service;
+package com.example.trainingappointment.service.appointment;
 
 import com.example.trainingappointment.entity.Trainee;
 import com.example.trainingappointment.entity.Training;
-import com.example.trainingappointment.exception.NoEmptyTrainerSlots;
+import com.example.trainingappointment.exception.NoEmptyTrainerSlotsException;
 import com.example.trainingappointment.exception.NonExistingTrainerIdException;
 import com.example.trainingappointment.exception.TrainingAlreadyAppointedException;
 import com.example.trainingappointment.payload.request.AppointmentRequest;
@@ -39,7 +39,7 @@ public class AppointmentServiceImpl implements AppointmentService {
                                     throw new TrainingAlreadyAppointedException();
                                 }
                             } else {
-                                throw new NoEmptyTrainerSlots();
+                                throw new NoEmptyTrainerSlotsException();
                             }
                         },
                         () -> {
