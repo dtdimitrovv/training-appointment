@@ -1,5 +1,6 @@
 package com.example.trainingappointment.entity;
 
+import com.example.authorizationValidator.entity.WithoutPrimaryKeyBaseEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -8,7 +9,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "trainers")
-public class Trainer extends BaseEntity {
+public class Trainer extends WithoutPrimaryKeyBaseEntity {
 
     private Set<Training> trainings;
 

@@ -1,4 +1,4 @@
-package com.example.trainingappointment.service;
+package com.example.trainingappointment.service.appointment;
 
 import com.example.trainingappointment.entity.Trainee;
 import com.example.trainingappointment.payload.request.AppointmentRequest;

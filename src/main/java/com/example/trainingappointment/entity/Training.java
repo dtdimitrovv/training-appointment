@@ -1,13 +1,13 @@
 package com.example.trainingappointment.entity;
 
+import com.example.authorizationValidator.entity.WithPrimaryKeyBaseEntity;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "trainings")
-public class Training  { // TODO - could be renamed to appointment
-    private Long id;
+public class Training extends WithPrimaryKeyBaseEntity {
     private Trainer trainer;
     private Trainee trainee;
     private LocalDateTime startTime;
@@ -19,17 +19,6 @@ public class Training  { // TODO - could be renamed to appointment
         this.trainer = trainer;
         this.trainee = trainee;
         this.startTime = startTime;
-    }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long getId() {
-        return id;
-    }
-
-    public Training setId(Long id) {
-        this.id = id;
-        return this;
     }
 
     @ManyToOne

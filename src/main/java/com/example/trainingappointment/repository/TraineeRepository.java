@@ -1,7 +1,7 @@
 package com.example.trainingappointment.repository;
 
+import com.example.authorizationValidator.repository.AuthenticationEntityRepository;
 import com.example.trainingappointment.entity.Trainee;
-import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface TraineeRepository extends JpaRepository<Trainee, Long> {
+public interface TraineeRepository extends AuthenticationEntityRepository<Trainee, Long> {
 }
